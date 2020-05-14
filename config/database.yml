@@ -1,0 +1,23 @@
+
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  # For details on connection pooling, see Rails configuration guide
+  # https://guides.rubyonrails.org/configuring.html#database-pooling
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  # the same name as the operating system user that initialized the database.
+  username: arlymoura
+
+  # The password associated with the postgres role (username).
+  password: asm123456
+
+development:
+  <<: *default
+  database: hexacta_dev_development
+test:
+  <<: *default
+  database: hexacta_dev_test
+
+production:
+  <<: *default
+  database: hexacta_dev_production
