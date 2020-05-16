@@ -45,6 +45,7 @@ group :development, :test do
   gem 'rubocop-performance'
   gem 'rubocop-rails'
   gem 'rubocop-rspec'
+  gem 'rubocop-faker'
   gem 'rubocop', require: false
   gem 'rails_best_practices'
   gem 'simplecov', require: false
@@ -68,3 +69,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-facebook'
+#jobs
+gem 'redis'
+gem 'sidekiq'
