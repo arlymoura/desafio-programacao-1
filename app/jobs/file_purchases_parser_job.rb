@@ -4,7 +4,6 @@ class FilePurchasesParserJob < ApplicationJob
  
 
   def perform(file)
-    purchasers = []
     ActiveRecord::Base.transaction do
       CSV.foreach(file.path, col_sep: "\t", headers: true, header_converters: :symbol) do |row|
         content = row.to_hash

@@ -7,7 +7,7 @@ class UploadsController < ApplicationController
   def create
     parser_file_job
  
-    flash[:notice] = "Estamos processando o arquivo de comporas \\o/"
+    flash[:success] = "Estamos processando o arquivo de comporas \\o/"
     redirect_to '/home'
   end
 
