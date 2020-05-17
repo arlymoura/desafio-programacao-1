@@ -32,5 +32,12 @@ module HexactaDev
     # Don't generate system test files.
     config.generators.system_tests = nil
     config.active_job.queue_adapter = :sidekiq
+
+    #config locales
+    config.time_zone = 'America/Fortaleza'
+    config.active_record.default_timezone = :local
+    config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}')]
+    config.i18n.default_locale = :'pt-BR'
+
   end
 end
