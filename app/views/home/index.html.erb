@@ -1,17 +1,14 @@
-<h1>Home#index</h1>
-<h1>Compras Lista</h1>
-
+<h1>Lista de Compras </h1>
 <div class='container'>
-  <table class='table table-striped table-responsive'>
-    <caption>Compras Carregadas</caption>
+  <table class='table table-striped table-responsive table-bordered table-dark'>
     <thead>
       <tr>
         <th> Comprador </th>
          <th> Descrição do Item </th>
-         <th> Preço do Item </th>
-         <th> Total de Itens </th>
          <th> Nome do Comerciante </th>
          <th> Endereço do Comerciante </th>
+         <th> Total de Itens </th>
+         <th> Preço do Item </th>
       </tr>
     </thead>
     <tbody>
@@ -19,17 +16,21 @@
         <tr>
           <td><%= purchase.purchaser.name %></td>
           <td><%= purchase.item.description %></td>
-          <td><%= number_to_currency(purchase.item.price, unit: 'R$', separator: ',', delimiter: '') %></td>
-          <td><%= purchase.quantity %></td>
           <td><%= purchase.item.merchant.name %></td>
           <td><%= purchase.item.merchant.address %></td>
+          <td><%= purchase.quantity %></td>
+          <td><%= number_to_currency(purchase.item.price, unit: 'R$', separator: ',', delimiter: '') %></td>
         </tr>
       <% end %>
       <tr>
-        <th>Total Profits:</th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th>Total:</th>
         <td><b><%= purchases_sum(@purchases) %></b></td>
       </tr>
     </tbody>
   </table>
 </div>
-<%= link_to  "Novo", new_upload_path %>
+

@@ -6,21 +6,21 @@
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
 
-  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag 'application', media: 'all' %>
+  <%= javascript_pack_tag 'application' %>
 </head>
 
 <body>
-  
-  <% unless current_user %>
-    <%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %>
-  <% else %>
-    <%= current_user.name %>
-    <%= current_user.email %>
-    <%= image_tag(current_user.image, size: "40") %>
-    <%= link_to "Logout", destroy_user_session_path, method: :delete %>
-    <%= yield %>
-  <% end %>
+  <%= render 'layouts/partials/navBar'%>
+  <div class="container-fluid">
+    <div class="row">
+      <%= render 'layouts/partials/sideMenu'%>
+      <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4 margin-main">
+        <%= render 'layouts/partials/flash_message'%>
+        <%= yield %>
+      </main>
+    </div>
+  </div>
 </body>
 
 </html>

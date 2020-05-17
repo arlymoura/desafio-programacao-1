@@ -1,12 +1,12 @@
 <div class='container'>
-  <h3>File Upload</h3>
+  <h3>Carregar Arquivo</h3>
   <div class='form-group'>
     <%= form_tag uploads_path, method: :post, multipart: true do %>
     <%= file_field_tag :file %>
   </div>
 
   <div class='actions'>
-    <%= submit_tag 'Confirm', class: 'btn btn-primary' %>
+    <%= submit_tag 'Enviar', class: 'btn btn-primary', data: { turbolinks: false } %>
   </div>
   <% end %>
 </div>
