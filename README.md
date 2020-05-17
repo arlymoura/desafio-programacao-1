@@ -8,11 +8,6 @@ Este desafio deve ser feito por você em sua casa. Gaste o tempo que você quise
 1. Em seguida, implemente o projeto tal qual descrito abaixo, em seu próprio fork.
 1. Por fim, empurre todas as suas alterações para o seu fork no Github e envie um pull request para este repositório original. Se você já entrou em contato com alguém da Nexaas sobre uma vaga, avise também essa pessoa por email, incluindo no email o seu usuário no Github.
 
-## Instruções alternativas de entrega do desafio (caso você não queira que sua submissão seja pública)
-1. Faça um clone deste repositório.
-1. Em seguida, implemente o projeto tal qual descrito abaixo, em seu clone local.
-1. Por fim, envie via email um arquivo patch para seu contato na Nexaas.
-
 ## Descrição do projeto
 Você recebeu um arquivo de texto com os dados de vendas da empresa. Precisamos criar uma maneira para que estes dados sejam importados para um banco de dados.
 
@@ -32,16 +27,20 @@ Sua aplicação web não precisa:
 1. Ser escrita usando algum framework específico (mas não há nada errado em usá-los também, use o que achar melhor).
 1. Ter uma aparência bonita.
 
-## Avaliação
-Seu projeto será avaliado de acordo com os seguintes critérios. 
 
-1. Sua aplicação preenche os requerimentos básicos?
-1. Você documentou a maneira de configurar o ambiente e rodar sua aplicação?
-1. Você seguiu as instruções de envio do desafio?
-1. Qualidade e cobertura dos testes unitários.
+### Solução
+Criada Utilizando rails 6 e ruby 2.5 e boostrap, solução bem simples.
+algumas validações foram deixadas de lado, como tipo de validação de arquivo de entrada.
 
-Adicionalmente, tentaremos verificar a sua familiarização com as bibliotecas padrões (standard libs), bem como sua experiência com programação orientada a objetos a partir da estrutura de seu projeto.
+### Colocando Projeto para Rodar
 
-### Referência
+1. descompactar o arquivo em uma pasta
+1. utilizar o bundle install (obs projeto feito em rails 6 e ruby 2.5)
+1. rodar rails webpacker:install
+1. configurar arquivo config/database.yml
+1. run rake db:create db:migrate db:prepare
+1. Para rodar bateria de teste rode rake test
 
-Este desafio foi baseado neste outro desafio: https://github.com/lschallenges/data-engineering
+### Observações sobre Desenvolvimento(melhorias)
+
+As gems 'redis' e 'sidekiq' foram incluidas ao projeto, para casos em que o processamento seja mais demorado, onde no arquivo UploadsController, poderia ser incluido a #FilePurchasesParserJob.perform_later(file), para melhor processamento dos arquivos. Com isso também seria neccesário uma configuração ou de armazenamento local dos arquivos ou remoto utilizando activeStorage. 
